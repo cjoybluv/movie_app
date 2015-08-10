@@ -1,0 +1,10 @@
+<section class="results-area">
+	<h3>RESULTS</h3>
+	<ul>
+	<% results.forEach(function(movie){ %>
+		<li>
+		<%- link_to(movie.Title, "/movies/" + movie.imdbID) %>
+		</li>
+	<% }); %>
+	</ul>
+</section>

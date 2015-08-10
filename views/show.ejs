@@ -1,0 +1,19 @@
+<section class="results-area cf">
+	<h3><%= movie.Title %></h3>
+	<aside class="movie-poster">
+		<%- img_tag(movie.Poster) %>
+	</aside>
+	<section class="movie-info">
+			<h4>Director</h4>
+			<%= movie.Director %>
+			<br><br>
+			<h4>Cast</h4>
+			<%= movie.Actors %>
+			<br><br>
+			<h4>Plot</h4>
+			<%= movie.Plot %>
+			<br><br>
+			<h4>Rating</h4>
+			<%= movie.tomatoMeter %>
+	</section>
+</section>
