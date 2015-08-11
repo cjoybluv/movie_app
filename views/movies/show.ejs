@@ -1,0 +1,27 @@
+<section class="results-area cf">
+	<h3><%= movie.Title %></h3>
+	<aside class="movie-poster">
+		<%- img_tag(movie.Poster) %>
+	</aside>
+	<section class="movie-info">
+			<h4>Director</h4>
+			<%= movie.Director %>
+			<br><br>
+			<h4>Cast</h4>
+			<%= movie.Actors %>
+			<br><br>
+			<h4>Plot</h4>
+			<%= movie.Plot %>
+			<br><br>
+			<h4>Rating</h4>
+			<%= movie.tomatoMeter %>
+			<br><br>
+			<form method="post" action="/favorites">
+				<input type="hidden" value="<%= movie.Title %>" name="title">
+				<input type="hidden" value="<%= movie.Year %>" name="year">
+				<input type="hidden" value="<%= movie.Poster %>" name="poster">
+				<input type="hidden" value="<%= id %>" name="id">
+				<button class="btn watchlist-btn">Add to Watchlist</button>
+			</form>
+	</section>
+</section>
