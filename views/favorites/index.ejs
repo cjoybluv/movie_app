@@ -1,1 +1,10 @@
-favorites index
+<section class="results-area">
+	<h3>FAVORITES</h3>
+	<ul>
+	<% favList.forEach(function(movie){ %>
+		<li>
+		<%- link_to(movie.title, "/movies/" + movie.imdbId) %>
+		</li>
+	<% }); %>
+	</ul>
+</section>

@@ -7,7 +7,9 @@ var bodyParser = require('body-parser');
 
 // at site.com/favorites
 router.get("/", function(req, res){
-    res.render("favorites/index.ejs");
+    db.favorite.findAll().then(function(favList){
+      res.render("favorites/index.ejs", {favList: favList});
+    });
 });
 
 router.post("/", function(req, res){
