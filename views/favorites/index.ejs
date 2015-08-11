@@ -3,8 +3,8 @@
 	<ul>
 	<% favList.forEach(function(movie){ %>
 		<li>
-		<%- link_to(movie.title, "/movies/" + movie.imdbId) %> 
-		<%- link_to("add a comment", )%> 
+		<%- link_to(movie.title + "(" + movie.year + ")", "/movies/" + movie.imdbId) %> 
+		<%- link_to("comments", "/favorites/" + movie.imdbId + "/comments", {id: "comment-link"} )%> 
 		</li>
 	<% }); %>
 	</ul>

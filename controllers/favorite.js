@@ -22,7 +22,25 @@ router.post("/", function(req, res){
     }).then(function(favorite){
         res.redirect("movies/" + req.body.id)
     });
+});
 
-})
+router.get("/:id/comments", function(req, res){
+    var id = req.params.id;
+    db.favorite.find({where: {imdbId: req.params.id}}).then(function(movie){
+        movie.getComments().then(function(commentsArray){
+            res.render("favorites/comments.ejs", {comments: commentsArray,
+                                                   imdbId: id});
+        });
+    });
+});
+
+router.post("/:id/comments", function(req, res){
+    var backURL=req.header('Referer') || '/';
+    db.favorite.find({where: {imdbId: req.body.id}}).then(function(movie){
+        movie.createComment({body: req.body.content}).then(function(comment) {
+            res.redirect(backURL);
+        });
+    });
+});
 
 module.exports = router;

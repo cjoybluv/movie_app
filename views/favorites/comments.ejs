@@ -1,0 +1,18 @@
+<section class="results-area">
+	<h3>COMMENTS</h3>
+	<ul>
+	<% comments.forEach(function(comment){ %>
+		<li>
+		<span class="comment"><%= comment.body %> </span>
+		</li>
+	<% }); %>
+	</ul>
+</section>
+<section class="comment-area">
+	<form method="post" action="/favorites/<%= imdbId %>/comments">
+		<input type="hidden" name="id" value="<%= imdbId %>">
+		<textarea name="content" placeholder="Enter a comment"></textarea>
+		<br>
+		<button class="btn comment-btn">submit</button>
+	</form>
+</section>

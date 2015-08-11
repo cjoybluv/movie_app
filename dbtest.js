@@ -10,3 +10,11 @@ var db = require("./models");
 //         console.log(fav.title);
 //     });
 // });
+
+db.favorite.find({where: {imdbId: "tt0083658"}}).then(function(movie){
+    movie.createComment({body: "This movie rules!"}).then(function(comment) {
+        console.log(comment.get());
+    });
+})
+
+
